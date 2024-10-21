@@ -1,0 +1,33 @@
+From 81b4c2ffa728adc547fae43dadc513350293e045 Mon Sep 17 00:00:00 2001
+From: sonata-chen <sonatachen39@gmail.com>
+Date: Tue, 13 Aug 2024 22:06:16 +0800
+Subject: [PATCH] remove gnu flags
+
+---
+ source/Makefile.mk | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/source/Makefile.mk b/source/Makefile.mk
+index 3924c7818..db52ba1fd 100644
+--- a/source/Makefile.mk
++++ b/source/Makefile.mk
+@@ -84,11 +84,11 @@ BASE_FLAGS += -DNDEBUG $(BASE_OPTS) -fvisibility=hidden
+ CXXFLAGS   += -fvisibility-inlines-hidden
+ endif
+ 
+-ifneq ($(MACOS_OR_WASM_OR_WINDOWS),true)
+-ifneq ($(BSD),true)
+-BASE_FLAGS += -fno-gnu-unique
+-endif
+-endif
++# ifneq ($(MACOS_OR_WASM_OR_WINDOWS),true)
++# ifneq ($(BSD),true)
++# BASE_FLAGS += -fno-gnu-unique
++# endif
++# endif
+ 
+ ifeq ($(WITH_LTO),true)
+ BASE_FLAGS += -fno-strict-aliasing -flto
+-- 
+2.46.0
+
